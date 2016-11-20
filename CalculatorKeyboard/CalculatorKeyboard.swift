@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol CalculatorDelegate: class {
+@objc public protocol CalculatorDelegate: class {
     func calculator(_ calculator: CalculatorKeyboard, didChangeValue value: String)
 }
 
