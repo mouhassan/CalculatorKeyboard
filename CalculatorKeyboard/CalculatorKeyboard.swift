@@ -93,6 +93,11 @@ open class CalculatorKeyboard: UIView {
         adjustLayout()
     }
     
+    open override func layoutSubviews() {
+        adjustLayout()
+        super.layoutSubviews()
+    }
+    
     fileprivate func loadXib() {
         view = loadViewFromNib()
         view.frame = bounds
