@@ -181,12 +181,10 @@ open class CalculatorKeyboard: UIView {
             for c in output.characters {
                 if let n = Int(String(c)) {
                     lo += (numberFormatter.string(from: NSNumber(value: n)))!
-                } else {
-                    // not a number, then it's a decimal point
-                    // but let's double-check
-                    if String(c) == "." {
-                        lo += numberFormatter.decimalSeparator
-                    }
+                } else if String(c) == "." {
+                    lo += numberFormatter.decimalSeparator
+                } else if String(c) == "-" {
+                    lo += numberFormatter.minusSign
                 }
             }
             return lo
