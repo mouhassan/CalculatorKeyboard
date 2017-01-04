@@ -10,6 +10,8 @@ import UIKit
 
 @objc public protocol CalculatorDelegate: class {
     func calculator(_ calculator: CalculatorKeyboard, didChangeValue value: String)
+    
+    @objc optional func calculatorDidTapEqual(_ calculator: CalculatorKeyboard)
 }
 
 enum CalculatorKey: Int {
@@ -214,6 +216,7 @@ open class CalculatorKeyboard: UIView {
         case CalculatorKey.equal.rawValue:
             let output = processor.computeFinalValue()
             delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
+            delegate?.calculatorDidTapEqual?(self)
             break
         default:
             break
