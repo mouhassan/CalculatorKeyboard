@@ -110,6 +110,28 @@ open class CalculatorKeyboard: UIView {
         super.layoutSubviews()
     }
     
+    open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
+        // reset calculator
+        let _ = processor.clearAll()
+    
+        let input = "\(number.doubleValue)"
+        
+        for c in input.characters {
+            if let n = Int(String(c)) {
+                let _ = processor.storeOperand(n)
+            } else if String(c) == "." {
+                let _ = processor.addDecimal()
+            } else if String(c) == "-" {
+                let _ = processor.storeOperator(CalculatorKey.subtract.rawValue)
+            }
+        }
+        
+        let output = processor.computeFinalValue()
+        if informDelegate {
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
+        }
+    }
+    
     fileprivate func loadXib() {
         view = loadViewFromNib()
         view.frame = bounds
