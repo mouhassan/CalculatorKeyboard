@@ -8,8 +8,10 @@
 
 import UIKit
 
-public protocol CalculatorDelegate: class {
+@objc public protocol CalculatorDelegate: class {
     func calculator(_ calculator: CalculatorKeyboard, didChangeValue value: String)
+    
+    @objc optional func calculatorDidTapEqual(_ calculator: CalculatorKeyboard)
 }
 
 enum CalculatorKey: Int {
@@ -73,6 +75,16 @@ open class CalculatorKeyboard: UIView {
         }
     }
     
+    open var localizedKeypad = false {
+        didSet {
+            adjustLocalizedKeypad()
+        }
+    }
+    
+    fileprivate lazy var numberFormatter: NumberFormatter  = {
+       return NumberFormatter()
+    }()
+    
     var view: UIView!
     fileprivate var processor = CalculatorProcessor()
     
@@ -91,6 +103,33 @@ open class CalculatorKeyboard: UIView {
     open override func awakeFromNib() {
         super.awakeFromNib()
         adjustLayout()
+    }
+    
+    open override func layoutSubviews() {
+        adjustLayout()
+        super.layoutSubviews()
+    }
+    
+    open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
+        // reset calculator
+        let _ = processor.clearAll()
+    
+        let input = "\(number.doubleValue)"
+        
+        for c in input.characters {
+            if let n = Int(String(c)) {
+                let _ = processor.storeOperand(n)
+            } else if String(c) == "." {
+                let _ = processor.addDecimal()
+            } else if String(c) == "-" {
+                let _ = processor.storeOperator(CalculatorKey.subtract.rawValue)
+            }
+        }
+        
+        let output = processor.computeFinalValue()
+        if informDelegate {
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
+        }
     }
     
     fileprivate func loadXib() {
@@ -141,26 +180,63 @@ open class CalculatorKeyboard: UIView {
         layoutIfNeeded()
     }
     
+    fileprivate func adjustLocalizedKeypad() {
+        // formatter with current locale
+        // loop through keypad form 0 to 9
+        for i in (CalculatorKey.zero.rawValue)...(CalculatorKey.nine.rawValue) {
+            let localizedDigit = numberFormatter.string(from: NSNumber(value: i-1))
+            if let button = self.viewWithTag(i) as? UIButton {
+                button.setTitle(localizedDigit, for: .normal)
+            }
+        }
+        
+        // decimal key
+        if let button = self.viewWithTag(CalculatorKey.decimal.rawValue) as? UIButton {
+            button.setTitle(numberFormatter.decimalSeparator, for: .normal)
+        }
+    }
+    
+    fileprivate func localizedOutput(from output:String) -> String {
+        if self.localizedKeypad {
+            var lo = ""
+            
+            for c in output.characters {
+                if let n = Int(String(c)) {
+                    lo += (numberFormatter.string(from: NSNumber(value: n)))!
+                } else if String(c) == "." {
+                    lo += numberFormatter.decimalSeparator
+                } else if String(c) == "-" {
+                    lo += numberFormatter.minusSign
+                }
+            }
+            return lo
+        }
+        else {
+            return output
+        }
+    }
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         switch (sender.tag) {
         case (CalculatorKey.zero.rawValue)...(CalculatorKey.nine.rawValue):
             let output = processor.storeOperand(sender.tag-1)
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
         case CalculatorKey.decimal.rawValue:
             let output = processor.addDecimal()
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
         case CalculatorKey.clear.rawValue:
             let output = processor.clearAll()
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
         case CalculatorKey.delete.rawValue:
             let output = processor.deleteLastDigit()
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
         case (CalculatorKey.multiply.rawValue)...(CalculatorKey.add.rawValue):
             let output = processor.storeOperator(sender.tag)
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
         case CalculatorKey.equal.rawValue:
             let output = processor.computeFinalValue()
-            delegate?.calculator(self, didChangeValue: output)
+            delegate?.calculator(self, didChangeValue: localizedOutput(from: output))
+            delegate?.calculatorDidTapEqual?(self)
             break
         default:
             break
