@@ -135,16 +135,30 @@ open class CalculatorKeyboard: UIView {
     fileprivate func loadXib() {
         view = loadViewFromNib()
         view.frame = bounds
-        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        
+        //view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+
         adjustLayout()
         addSubview(view)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leftConst = view.leftAnchor.constraint(equalTo: self.leftAnchor)
+        let rightConst = view.rightAnchor.constraint(equalTo: self.rightAnchor)
+        let topConst = view.topAnchor.constraint(equalTo: self.topAnchor)
+        let bottomConst = view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        
+        leftConst.isActive = true
+        rightConst.isActive = true
+        topConst.isActive = true
+        bottomConst.isActive = true
     }
     
     fileprivate func loadViewFromNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CalculatorKeyboard", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        adjustButtonConstraint()
+        //adjustButtonConstraint()
         return view
     }
     
