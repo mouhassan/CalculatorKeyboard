@@ -189,9 +189,13 @@ open class CalculatorKeyboard: UIView {
     }
     
     fileprivate func adjustButtonConstraint() {
-        let width = UIScreen.main.bounds.width / 4.0
-        zeroDistanceConstraint.constant = showDecimal ? width + 2.0 : 1.0
-        layoutIfNeeded()
+
+        //let width = UIScreen.main.bounds.width / 4.0
+        if let zeroButton = self.view.viewWithTag(CalculatorKey.zero.rawValue), let equalButton = self.view.viewWithTag(CalculatorKey.equal.rawValue) {
+            let width = (equalButton.frame.origin.x + equalButton.frame.size.width - zeroButton.frame.origin.x - 3.0) / 4.0
+            zeroDistanceConstraint.constant = showDecimal ? width + 2.0 : 1.0
+            layoutIfNeeded()
+        }
     }
     
     fileprivate func adjustLocalizedKeypad() {
