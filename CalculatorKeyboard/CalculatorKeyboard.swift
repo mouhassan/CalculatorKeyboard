@@ -36,46 +36,46 @@ enum CalculatorKey: Int {
 }
 
 open class CalculatorKeyboard: UIView {
-    open weak var delegate: CalculatorDelegate?
-    open var numbersBackgroundColor = UIColor(white: 0.97, alpha: 1.0) {
+    @objc open weak var delegate: CalculatorDelegate?
+    @objc open var numbersBackgroundColor = UIColor(white: 0.97, alpha: 1.0) {
         didSet {
             adjustLayout()
         }
     }
-    open var numbersTextColor = UIColor.black {
+    @objc open var numbersTextColor = UIColor.black {
         didSet {
             adjustLayout()
         }
     }
-    open var operationsBackgroundColor = UIColor(white: 0.75, alpha: 1.0) {
+    @objc open var operationsBackgroundColor = UIColor(white: 0.75, alpha: 1.0) {
         didSet {
             adjustLayout()
         }
     }
-    open var operationsTextColor = UIColor.white {
+    @objc open var operationsTextColor = UIColor.white {
         didSet {
             adjustLayout()
         }
     }
-    open var equalBackgroundColor = UIColor(red:0.96, green:0.5, blue:0, alpha:1) {
+    @objc open var equalBackgroundColor = UIColor(red:0.96, green:0.5, blue:0, alpha:1) {
         didSet {
             adjustLayout()
         }
     }
-    open var equalTextColor = UIColor.white {
+    @objc open var equalTextColor = UIColor.white {
         didSet {
             adjustLayout()
         }
     }
     
-    open var showDecimal = true {
+    @objc open var showDecimal = true {
         didSet {
             processor.automaticDecimal = !showDecimal
             adjustLayout()
         }
     }
     
-    open var localizedKeypad = false {
+    @objc open var localizedKeypad = false {
         didSet {
             adjustLocalizedKeypad()
         }
@@ -110,7 +110,7 @@ open class CalculatorKeyboard: UIView {
         super.layoutSubviews()
     }
     
-    open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
+    @objc open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
         // reset calculator
         let _ = processor.clearAll()
     
