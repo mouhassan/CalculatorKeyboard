@@ -116,7 +116,7 @@ open class CalculatorKeyboard: UIView {
     
         let input = "\(number.doubleValue)"
         
-        for c in input.characters {
+        for (_, c) in input.enumerated() {
             if let n = Int(String(c)) {
                 let _ = processor.storeOperand(n)
             } else if String(c) == "." {
@@ -218,7 +218,7 @@ open class CalculatorKeyboard: UIView {
         if self.localizedKeypad {
             var lo = ""
             
-            for c in output.characters {
+            for (_, c) in output.enumerated() {
                 if let n = Int(String(c)) {
                     lo += (numberFormatter.string(from: NSNumber(value: n)))!
                 } else if String(c) == "." {

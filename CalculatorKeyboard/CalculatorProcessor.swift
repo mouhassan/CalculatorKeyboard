@@ -46,23 +46,23 @@ class CalculatorProcessor {
                 currentOperand.remove(at: currentOperand.startIndex)
             }
             let char = decimalSymbol()[decimalSymbol().startIndex]
-            currentOperand.insert(char, at: currentOperand.characters.index(currentOperand.endIndex, offsetBy: -2))
+            currentOperand.insert(char, at: currentOperand.index(currentOperand.endIndex, offsetBy: -2))
         }
         
         return currentOperand
     }
     
     func deleteLastDigit() -> String {
-        if currentOperand.characters.count > 1 {
-            currentOperand.remove(at: currentOperand.characters.index(before: currentOperand.endIndex))
+        if currentOperand.count > 1 {
+            currentOperand.remove(at: currentOperand.index(before: currentOperand.endIndex))
             
             if automaticDecimal {
                 currentOperand = currentOperand.replacingOccurrences(of: decimalSymbol(), with: "")
-                if currentOperand.characters.count < 3 {
+                if currentOperand.count < 3 {
                     currentOperand.insert("0", at: currentOperand.startIndex)
                 }
                 let char = decimalSymbol()[decimalSymbol().startIndex]
-                currentOperand.insert(char, at: currentOperand.characters.index(currentOperand.endIndex, offsetBy: -2))
+                currentOperand.insert(char, at: currentOperand.index(currentOperand.endIndex, offsetBy: -2))
             }
         } else {
             currentOperand = resetOperand()
@@ -146,12 +146,12 @@ class CalculatorProcessor {
             raw = String(format: "%.2f", value)
             return raw
         } else {
-            var end = raw.characters.index(before: raw.endIndex)
+            var end = raw.index(before: raw.endIndex)
             var foundDecimal = false
             while end != raw.startIndex && (raw[end] == "0" || isDecimal(raw[end])) && !foundDecimal {
                 foundDecimal = isDecimal(raw[end])
                 raw.remove(at: end)
-                end = raw.characters.index(before: end)
+                end = raw.index(before: end)
             }
             return raw
         }
