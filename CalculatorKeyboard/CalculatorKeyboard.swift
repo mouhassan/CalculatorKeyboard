@@ -36,46 +36,46 @@ enum CalculatorKey: Int {
 }
 
 open class CalculatorKeyboard: UIView {
-    open weak var delegate: CalculatorDelegate?
-    open var numbersBackgroundColor = UIColor(white: 0.97, alpha: 1.0) {
+    @objc open weak var delegate: CalculatorDelegate?
+    @objc open var numbersBackgroundColor = UIColor(white: 0.97, alpha: 1.0) {
         didSet {
             adjustLayout()
         }
     }
-    open var numbersTextColor = UIColor.black {
+    @objc open var numbersTextColor = UIColor.black {
         didSet {
             adjustLayout()
         }
     }
-    open var operationsBackgroundColor = UIColor(white: 0.75, alpha: 1.0) {
+    @objc open var operationsBackgroundColor = UIColor(white: 0.75, alpha: 1.0) {
         didSet {
             adjustLayout()
         }
     }
-    open var operationsTextColor = UIColor.white {
+    @objc open var operationsTextColor = UIColor.white {
         didSet {
             adjustLayout()
         }
     }
-    open var equalBackgroundColor = UIColor(red:0.96, green:0.5, blue:0, alpha:1) {
+    @objc open var equalBackgroundColor = UIColor(red:0.96, green:0.5, blue:0, alpha:1) {
         didSet {
             adjustLayout()
         }
     }
-    open var equalTextColor = UIColor.white {
+    @objc open var equalTextColor = UIColor.white {
         didSet {
             adjustLayout()
         }
     }
     
-    open var showDecimal = true {
+    @objc open var showDecimal = true {
         didSet {
             processor.automaticDecimal = !showDecimal
             adjustLayout()
         }
     }
     
-    open var localizedKeypad = false {
+    @objc open var localizedKeypad = false {
         didSet {
             adjustLocalizedKeypad()
         }
@@ -110,13 +110,13 @@ open class CalculatorKeyboard: UIView {
         super.layoutSubviews()
     }
     
-    open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
+    @objc open func resetWithInitialNumber(_ number: NSNumber, informDelegate:Bool) {
         // reset calculator
         let _ = processor.clearAll()
     
         let input = "\(number.doubleValue)"
         
-        for c in input.characters {
+        for (_, c) in input.enumerated() {
             if let n = Int(String(c)) {
                 let _ = processor.storeOperand(n)
             } else if String(c) == "." {
@@ -135,16 +135,30 @@ open class CalculatorKeyboard: UIView {
     fileprivate func loadXib() {
         view = loadViewFromNib()
         view.frame = bounds
-        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        
+        //view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+
         adjustLayout()
         addSubview(view)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leftConst = view.leftAnchor.constraint(equalTo: self.leftAnchor)
+        let rightConst = view.rightAnchor.constraint(equalTo: self.rightAnchor)
+        let topConst = view.topAnchor.constraint(equalTo: self.topAnchor)
+        let bottomConst = view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        
+        leftConst.isActive = true
+        rightConst.isActive = true
+        topConst.isActive = true
+        bottomConst.isActive = true
     }
     
     fileprivate func loadViewFromNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CalculatorKeyboard", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        adjustButtonConstraint()
+        //adjustButtonConstraint()
         return view
     }
     
@@ -156,28 +170,32 @@ open class CalculatorKeyboard: UIView {
         for i in 1...CalculatorKey.decimal.rawValue {
             if let button = self.view.viewWithTag(i) as? UIButton {
                 button.tintColor = numbersBackgroundColor
-                button.setTitleColor(numbersTextColor, for: UIControlState())
+                button.setTitleColor(numbersTextColor, for: UIControl.State())
             }
         }
         
         for i in CalculatorKey.clear.rawValue...CalculatorKey.add.rawValue {
             if let button = self.view.viewWithTag(i) as? UIButton {
                 button.tintColor = operationsBackgroundColor
-                button.setTitleColor(operationsTextColor, for: UIControlState())
+                button.setTitleColor(operationsTextColor, for: UIControl.State())
                 button.tintColor = operationsTextColor
             }
         }
         
         if let button = self.view.viewWithTag(CalculatorKey.equal.rawValue) as? UIButton {
             button.tintColor = equalBackgroundColor
-            button.setTitleColor(equalTextColor, for: UIControlState())
+            button.setTitleColor(equalTextColor, for: UIControl.State())
         }
     }
     
     fileprivate func adjustButtonConstraint() {
-        let width = UIScreen.main.bounds.width / 4.0
-        zeroDistanceConstraint.constant = showDecimal ? width + 2.0 : 1.0
-        layoutIfNeeded()
+
+        //let width = UIScreen.main.bounds.width / 4.0
+        if let zeroButton = self.view.viewWithTag(CalculatorKey.zero.rawValue), let equalButton = self.view.viewWithTag(CalculatorKey.equal.rawValue) {
+            let width = (equalButton.frame.origin.x + equalButton.frame.size.width - zeroButton.frame.origin.x - 3.0) / 4.0
+            zeroDistanceConstraint.constant = showDecimal ? width + 2.0 : 1.0
+            layoutIfNeeded()
+        }
     }
     
     fileprivate func adjustLocalizedKeypad() {
@@ -200,7 +218,7 @@ open class CalculatorKeyboard: UIView {
         if self.localizedKeypad {
             var lo = ""
             
-            for c in output.characters {
+            for (_, c) in output.enumerated() {
                 if let n = Int(String(c)) {
                     lo += (numberFormatter.string(from: NSNumber(value: n)))!
                 } else if String(c) == "." {
