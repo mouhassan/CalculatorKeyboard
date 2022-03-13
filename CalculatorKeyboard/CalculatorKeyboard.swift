@@ -152,6 +152,14 @@ open class CalculatorKeyboard: UIView {
         rightConst.isActive = true
         topConst.isActive = true
         bottomConst.isActive = true
+        
+        for subView in view.subviews {
+            guard let button = subView as? UIButton else {
+                continue
+            }
+            
+            button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        }
     }
     
     fileprivate func loadViewFromNib() -> UIView {

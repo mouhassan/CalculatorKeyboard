@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,9 +24,6 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="DNQ-6f-HfU"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0M-sf-LJq">
                     <rect key="frame" x="20" y="292" width="200" height="71"/>
@@ -38,9 +32,6 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="dL8-79-9VS"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPX-9a-L5k">
                     <rect key="frame" x="20" y="220.5" width="104.5" height="70.5"/>
@@ -49,31 +40,22 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="d58-FI-Tms"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc5-S2-ZMh">
-                    <rect key="frame" x="125.5" y="220" width="104" height="71"/>
+                    <rect key="frame" x="125.5" y="220.5" width="104" height="70.5"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                     <state key="normal" title="2" backgroundImage="RF_light_button_background">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="WPt-Vj-STc"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dr-ZX-ypf">
-                    <rect key="frame" x="230.5" y="221" width="104.5" height="70"/>
+                    <rect key="frame" x="230.5" y="220.5" width="104.5" height="70.5"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                     <state key="normal" title="3" backgroundImage="RF_light_button_background">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="K6z-oU-2Jk"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bou-vY-D6O">
                     <rect key="frame" x="20" y="148.5" width="104.5" height="71"/>
@@ -82,31 +64,22 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="Py6-WD-uZK"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpi-Ks-a0W">
-                    <rect key="frame" x="125.5" y="149" width="104" height="70"/>
+                    <rect key="frame" x="125.5" y="148.5" width="104" height="71"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                     <state key="normal" title="5" backgroundImage="RF_light_button_background">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="cAt-8J-Vrh"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-8s-NE7">
-                    <rect key="frame" x="230.5" y="149" width="104.5" height="70"/>
+                    <rect key="frame" x="230.5" y="148.5" width="104.5" height="71"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                     <state key="normal" title="6" backgroundImage="RF_light_button_background">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="INx-9W-W87"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-c0-3AP">
                     <rect key="frame" x="20" y="77" width="104.5" height="70.5"/>
@@ -115,20 +88,14 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="ihc-F9-qbf"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMe-iP-D7g">
-                    <rect key="frame" x="125.5" y="77" width="104" height="71"/>
+                    <rect key="frame" x="125.5" y="77" width="104" height="70.5"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                     <state key="normal" title="8" backgroundImage="RF_light_button_background">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="sfn-AX-Cbw"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-Br-Wdo">
                     <rect key="frame" x="230.5" y="77" width="104.5" height="70.5"/>
@@ -137,9 +104,6 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="goe-Wo-Tfk"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nl8-lV-H5b">
                     <rect key="frame" x="20" y="5" width="104.5" height="71"/>
@@ -148,9 +112,6 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="C5w-3h-jCE"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da2-ak-xmw">
                     <rect key="frame" x="336" y="5" width="104" height="71"/>
@@ -160,9 +121,6 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="698-o2-99m"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-um-s42">
                     <rect key="frame" x="125.5" y="5" width="104" height="71"/>
@@ -171,20 +129,14 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="DZ2-Wn-hQc"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5D-4f-B2c">
-                    <rect key="frame" x="336" y="149" width="104" height="70"/>
+                    <rect key="frame" x="336" y="148.5" width="104" height="71"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="+" backgroundImage="RF_dark_button_background">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="OaH-Xh-zvf"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hY3-7Y-cu0">
                     <rect key="frame" x="230.5" y="5" width="104.5" height="71"/>
@@ -193,9 +145,6 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="uRV-FT-Axz"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zp-Ql-AFP">
                     <rect key="frame" x="336" y="77" width="104" height="70.5"/>
@@ -204,20 +153,14 @@
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="1Ch-dP-k11"/>
-                    </connections>
                 </button>
                 <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01X-pX-xGE">
-                    <rect key="frame" x="336" y="220" width="104" height="143"/>
+                    <rect key="frame" x="336" y="220.5" width="104" height="142.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="=" backgroundImage="RF_orange_button_background">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="buttonPressed:" destination="-2" eventType="touchUpInside" id="vVQ-xC-g3O"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
