@@ -163,7 +163,7 @@ open class CalculatorKeyboard: UIView {
     }
     
     fileprivate func loadViewFromNib() -> UIView {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle.module
         let nib = UINib(nibName: "CalculatorKeyboard", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         //adjustButtonConstraint()
