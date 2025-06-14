@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,6 @@
 		451722831B82BAAA00D88E34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451722821B82BAAA00D88E34 /* Images.xcassets */; };
 		451722861B82BAAA00D88E34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451722841B82BAAA00D88E34 /* LaunchScreen.xib */; };
 		451722921B82BAAA00D88E34 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451722911B82BAAA00D88E34 /* ExampleTests.swift */; };
-		45C5247C1C1213DD00510CF7 /* CalculatorKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C524791C1213D700510CF7 /* CalculatorKeyboard.framework */; };
-		45C5247D1C1213DD00510CF7 /* CalculatorKeyboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45C524791C1213D700510CF7 /* CalculatorKeyboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,27 +23,6 @@
 			remoteGlobalIDString = 451722751B82BAAA00D88E34;
 			remoteInfo = Example;
 		};
-		45C524781C1213D700510CF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 45C5244E1C120F4E00510CF7;
-			remoteInfo = CalculatorKeyboard;
-		};
-		45C5247A1C1213D700510CF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 45C524581C120F4E00510CF7;
-			remoteInfo = CalculatorKeyboardTests;
-		};
-		45C5247E1C1213DD00510CF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 45C5244D1C120F4E00510CF7;
-			remoteInfo = CalculatorKeyboard;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				45C5247D1C1213DD00510CF7 /* CalculatorKeyboard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +49,6 @@
 		4517228B1B82BAAA00D88E34 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		451722901B82BAAA00D88E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		451722911B82BAAA00D88E34 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CalculatorKeyboard.xcodeproj; path = ../CalculatorKeyboard.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45C5247C1C1213DD00510CF7 /* CalculatorKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +72,6 @@
 		4517226D1B82BAAA00D88E34 = {
 			isa = PBXGroup;
 			children = (
-				45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */,
 				451722781B82BAAA00D88E34 /* Example */,
 				4517228E1B82BAAA00D88E34 /* ExampleTests */,
 				451722771B82BAAA00D88E34 /* Products */,
@@ -152,15 +125,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		45C524741C1213D600510CF7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				45C524791C1213D700510CF7 /* CalculatorKeyboard.framework */,
-				45C5247B1C1213D700510CF7 /* CalculatorKeyboardTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,7 +140,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				45C5247F1C1213DD00510CF7 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -231,14 +194,11 @@
 				Base,
 			);
 			mainGroup = 4517226D1B82BAAA00D88E34;
+			packageReferences = (
+				E409A6922DFDD67300071564 /* XCLocalSwiftPackageReference "../../CalculatorKeyboard" */,
+			);
 			productRefGroup = 451722771B82BAAA00D88E34 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 45C524741C1213D600510CF7 /* Products */;
-					ProjectRef = 45C524731C1213D600510CF7 /* CalculatorKeyboard.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				451722751B82BAAA00D88E34 /* Example */,
@@ -246,23 +206,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		45C524791C1213D700510CF7 /* CalculatorKeyboard.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CalculatorKeyboard.framework;
-			remoteRef = 45C524781C1213D700510CF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		45C5247B1C1213D700510CF7 /* CalculatorKeyboardTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CalculatorKeyboardTests.xctest;
-			remoteRef = 45C5247A1C1213D700510CF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		451722741B82BAAA00D88E34 /* Resources */ = {
@@ -309,11 +252,6 @@
 			isa = PBXTargetDependency;
 			target = 451722751B82BAAA00D88E34 /* Example */;
 			targetProxy = 4517228C1B82BAAA00D88E34 /* PBXContainerItemProxy */;
-		};
-		45C5247F1C1213DD00510CF7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CalculatorKeyboard;
-			targetProxy = 45C5247E1C1213DD00510CF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -428,7 +366,10 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reefactor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -445,7 +386,10 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reefactor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -464,7 +408,11 @@
 				);
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reefactor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -479,7 +427,11 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reefactor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -518,6 +470,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E409A6922DFDD67300071564 /* XCLocalSwiftPackageReference "../../CalculatorKeyboard" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../CalculatorKeyboard;
+		};
+/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = 4517226E1B82BAAA00D88E34 /* Project object */;
 }
